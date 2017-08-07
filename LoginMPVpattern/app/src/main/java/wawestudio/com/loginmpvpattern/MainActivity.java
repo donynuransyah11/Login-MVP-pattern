@@ -7,14 +7,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import wawestudio.com.loginmpvpattern.Presenter.LoginPresenter;
+import wawestudio.com.loginmpvpattern.Presenter.LoginInterface;
 import wawestudio.com.loginmpvpattern.Presenter.LoginPresenterImplem;
-import wawestudio.com.loginmpvpattern.View.LoginView;
 
-public class MainActivity extends AppCompatActivity implements LoginView{
+public class MainActivity extends AppCompatActivity implements LoginInterface.loginView {
+
     private TextView login;
     private EditText username,password;
-    LoginPresenter presenter;
+    LoginInterface.loginPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,6 +1,6 @@
 package wawestudio.com.loginmpvpattern.Presenter;
 
-import wawestudio.com.loginmpvpattern.View.LoginView;
+import wawestudio.com.loginmpvpattern.Model.Login;
 
 /**
  * Created by Dony.A.Nuransyah on 28/12/16.
@@ -11,20 +11,21 @@ import wawestudio.com.loginmpvpattern.View.LoginView;
 Implementasi dari Logic
  */
 
-public class LoginPresenterImplem implements LoginPresenter {
-    LoginView view;
+public class LoginPresenterImplem implements LoginInterface.loginPresenter {
+    LoginInterface.loginView view;
+    Login login;
 
-
-    public LoginPresenterImplem(LoginView view){
-        this.view=view;
+    public LoginPresenterImplem(LoginInterface.loginView view){
+        this.view = view;
+        this.login = new Login();
     }
 
     @Override
     public void login(String username, String password) {
-        if(username.equalsIgnoreCase("admin")&&password.equalsIgnoreCase("admin")){
+        //example we get data login from
+        if(login.getUsername().equals(username)&&login.getPassword().equals(password)){
             view.valid();
-        }
-        else{
+        }else{
             view.error();
         }
     }
